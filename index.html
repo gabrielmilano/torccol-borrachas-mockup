@@ -17,12 +17,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="src/css/style.css">
-<script>document.documentElement.classList.add("js")</script>
+<script>
+(function(h){h.classList.add("js");var v=0;try{v=sessionStorage.getItem("torccol-intro")}catch(e){}
+if(!v){h.classList.add("com-intro");setTimeout(function(){if(h.classList.contains("com-intro")){h.classList.remove("com-intro");document.dispatchEvent(new Event("torccol:intro-fim"))}},5000)}})(document.documentElement);
+</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Torccol Borrachas","description":"Fabricante de peças em borracha e poliuretano sob medida, com matrizaria própria.","foundingDate":"2004-12","telephone":"+55-48-3443-3799","email":"contato@torccolborrachas.com.br","address":{"@type":"PostalAddress","streetAddress":"Rodovia SC 447, 3505","addressLocality":"Criciúma","addressRegion":"SC","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-28.661591,"longitude":-49.443873},"sameAs":["https://www.instagram.com/torccolborrachas/"]}
 </script>
 </head>
 <body>
+<div class="intro" aria-hidden="true"><div class="intro-faixa"><img src="src/img/logo-torccol.webp" alt=""></div></div>
 
 <div class="faixa-topo">
   <div class="wrap">
@@ -55,59 +59,62 @@
     <div class="wrap">
       <div class="heroi-texto">
         <h1>Peças de borracha e poliuretano feitas na medida da sua máquina.</h1>
-        <p class="lead">Desde 2004 a Torccol desenha a matriz, vulcaniza e entrega a peça pronta — de Criciúma para indústrias de todo o Brasil.</p>
-        <div class="acoes">
+        <p class="lead" data-surge>Desde 2004 a Torccol desenha a matriz, vulcaniza e entrega a peça pronta — de Criciúma para indústrias de todo o Brasil.</p>
+        <div class="acoes" data-surge>
           <a class="btn btn-verde" data-zap href="#">Pedir orçamento no WhatsApp</a>
           <a class="btn btn-linha" href="produtos.html">Ver as 22 linhas de produto</a>
         </div>
-        <p class="heroi-nota">Tem só o desenho, ou a peça gasta na mão? <strong>Serve também.</strong></p>
+        <p class="heroi-nota" data-surge>Tem só o desenho, ou a peça gasta na mão? <strong>Serve também.</strong></p>
       </div>
-      <div class="palco" aria-hidden="true">
+      <div class="palco" id="palco">
         <div class="faixa"></div>
+        <canvas id="fisica" aria-hidden="true"></canvas>
+        <p class="dica"><span>Peças reais do nosso catálogo.</span> É borracha.</p>
+        <div class="palco-estatico" aria-hidden="true">
         <img class="peca p-roletes" src="src/img/produtos/roletes-de-carga.webp" alt="">
         <img class="peca p-rodas" src="src/img/produtos/rodas-em-borracha-e-poliuretano.webp" alt="">
         <img class="peca p-esferas" src="src/img/produtos/esferas.webp" alt="">
         <img class="peca p-rotores" src="src/img/produtos/rotores.webp" alt="">
         <img class="peca p-acopla" src="src/img/produtos/amortizadores.webp" alt="">
+        </div>
       </div>
     </div>
   </section>
 
   <section class="provas" aria-label="A Torccol em números">
     <div class="wrap">
-      <div class="prova"><b>2004</b><span>fabricando em Criciúma</span></div>
-      <div class="prova"><b>6.000 m²</b><span>de fábrica própria</span></div>
-      <div class="prova"><b>10</b><span>compostos de borracha e PU</span></div>
-      <div class="prova"><b>100%</b><span>do rejeito reaproveitado</span></div>
+      <div class="prova"><b data-conta="2004" data-de="1980">2004</b><span>fabricando em Criciúma</span></div>
+      <div class="prova"><b><span data-conta="6000" data-milhar>6.000</span> m²</b><span>de fábrica própria</span></div>
+      <div class="prova"><b data-conta="10">10</b><span>compostos de borracha e PU</span></div>
+      <div class="prova"><b data-conta="100" data-suf="%">100%</b><span>do rejeito reaproveitado</span></div>
     </div>
   </section>
 
-  <section class="secao" id="produtos">
-    <div class="wrap">
-      <div class="cab">
-        <h2>22 linhas de produto, em cinco famílias.</h2>
-        <div>
-          <p>Do anel de vedação à roda de empilhadeira. Se a sua peça não está aqui, a matriz a gente faz.</p>
-        </div>
+  <section class="linhas" id="produtos">
+    <div class="wrap linhas-cab">
+      <h2 data-titulo>22 linhas de produto, em cinco famílias.</h2>
+      <div>
+        <p data-surge>Do anel de vedação à roda de empilhadeira. Cada família abre direto no catálogo.</p>
+        <div class="progresso" aria-hidden="true"><span></span></div>
       </div>
-      <div class="familias" id="familias"></div>
-      <p style="margin-top:28px"><a class="btn btn-preto" href="produtos.html">Abrir o catálogo completo</a></p>
     </div>
+    <div class="trilho" id="trilho"></div>
   </section>
 
   <section class="sob" id="sob-medida">
     <div class="wrap">
       <div class="sob-grade">
         <div>
-          <h2>Mande o desenho. A matriz a gente faz aqui.</h2>
+          <h2 data-titulo>Mande o desenho. A matriz a gente faz aqui.</h2>
           <p class="lead" style="margin-top:18px;color:#0A2A18">Matrizaria própria significa que ninguém de fora entra no seu prazo. Projeto, ferramenta e produção acontecem na mesma fábrica.</p>
           <div class="aceita"><span>Desenho 2D ou 3D</span><span>Amostra física</span><span>Peça desgastada</span><span>Só uma foto com medidas</span></div>
+          <div class="passos-wrap"><div class="passos-barra" aria-hidden="true"><span></span></div>
           <ol class="passos">
             <li><div><h3>Você envia a referência</h3><p>Desenho, amostra ou a peça velha, com a aplicação e a quantidade.</p></div></li>
             <li><div><h3>Análise técnica</h3><p>Definimos o composto, a dureza e o processo certos para o uso.</p></div></li>
             <li><div><h3>Fabricação da matriz</h3><p>Usinada na nossa matrizaria, com precisão e sem terceirizar.</p></div></li>
             <li><div><h3>Produção e entrega</h3><p>Vulcanização, rebarbação e controle peça a peça antes de sair.</p></div></li>
-          </ol>
+          </ol></div>
           <p style="margin-top:30px"><a class="btn btn-preto" data-zap="Olá, Torccol! Quero orçar uma peça sob medida. Vou enviar o desenho/foto." href="#">Enviar desenho pelo WhatsApp</a></p>
         </div>
         <div class="sob-fotos">
@@ -121,7 +128,7 @@
   <section class="secao" id="materiais">
     <div class="wrap">
       <div class="cab">
-        <h2>Qual borracha aguenta a sua aplicação?</h2>
+        <h2 data-titulo>Qual borracha aguenta a sua aplicação?</h2>
         <p>Trabalhamos com 10 compostos. Marque o que a peça vai enfrentar e veja quais servem.</p>
       </div>
       <div class="seletor">
@@ -140,12 +147,16 @@
   <section class="secao segmentos" id="segmentos">
     <div class="wrap">
       <div class="cab">
-        <h2>Onde as nossas peças trabalham</h2>
+        <h2 data-titulo>Onde as nossas peças trabalham</h2>
         <p>Nascemos no polo cerâmico e mineral do sul catarinense. Hoje atendemos 11 setores.</p>
       </div>
-      <ul class="lista-seg">
-        <li>Cerâmico</li><li>Mineração</li><li>Moveleiro</li><li>Automotivo</li><li>Siderúrgico</li><li>Naval</li><li>Alimentício</li><li>Hospitalar</li><li>Construção civil</li><li>Gráfico</li><li>Eletroeletrônico</li>
-      </ul>
+    </div>
+    <div class="seg-faixas">
+      <p class="sr">Setores atendidos: Cerâmico, Mineração, Moveleiro, Automotivo, Siderúrgico, Naval, Alimentício, Hospitalar, Construção civil, Gráfico, Eletroeletrônico.</p>
+      <div class="seg-linha" data-dir="-1" aria-hidden="true"><span>Cerâmico</span><span>Mineração</span><span>Moveleiro</span><span>Automotivo</span><span>Siderúrgico</span><span>Naval</span><span>Cerâmico</span><span>Mineração</span><span>Moveleiro</span><span>Automotivo</span><span>Siderúrgico</span><span>Naval</span></div>
+      <div class="seg-linha seg-contorno" data-dir="1" aria-hidden="true"><span>Alimentício</span><span>Hospitalar</span><span>Construção civil</span><span>Gráfico</span><span>Eletroeletrônico</span><span>Cerâmico</span><span>Mineração</span><span>Alimentício</span><span>Hospitalar</span><span>Construção civil</span><span>Gráfico</span><span>Eletroeletrônico</span><span>Cerâmico</span><span>Mineração</span></div>
+    </div>
+    <div class="wrap">
       <p class="seg-nota">Seu setor não está na lista? A pergunta que importa é o que a peça enfrenta: carga, óleo, calor, abrasão. Isso a gente resolve.</p>
     </div>
   </section>
@@ -153,7 +164,7 @@
   <section class="secao" id="fabrica">
     <div class="wrap">
       <div class="cab">
-        <h2>A fábrica</h2>
+        <h2 data-titulo>A fábrica</h2>
         <p>Sede própria às margens da SC-447, com matrizaria, vulcanização, rebarbação e controle de qualidade sob o mesmo teto.</p>
       </div>
       <div class="fabrica-grade">
@@ -171,7 +182,7 @@
     <div class="wrap">
       <div class="cem" aria-hidden="true">100%</div>
       <div>
-        <h2>Nenhuma sobra vai para o lixo.</h2>
+        <h2 data-titulo>Nenhuma sobra vai para o lixo.</h2>
         <p>Rebarbas e retalhos de borracha voltam para a produção e viram produtos para a construção civil. Reaproveitamos 100% do rejeito da fábrica — muito antes de isso virar exigência de fornecedor.</p>
       </div>
     </div>
@@ -180,7 +191,7 @@
   <section class="secao" id="contato">
     <div class="wrap contato-grade">
       <div>
-        <h2>Vamos orçar a sua peça.</h2>
+        <h2 data-titulo>Vamos orçar a sua peça.</h2>
         <p class="lead" style="margin-top:18px">Responde mais rápido pelo WhatsApp. Se preferir, ligue ou mande e-mail.</p>
         <ul class="dados">
           <li><span>WhatsApp</span><a data-zap href="#">(48) 3443-3799</a></li>
@@ -230,7 +241,14 @@
 
 <a class="zap" data-zap href="#" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg><span>WhatsApp</span></a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <script src="src/js/dados.js"></script>
 <script src="src/js/main.js"></script>
+<script src="src/js/fisica.js"></script>
+<script src="src/js/motion.js"></script>
 </body>
 </html>

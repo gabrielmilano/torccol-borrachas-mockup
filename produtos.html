@@ -54,7 +54,7 @@
   <section class="cat-topo">
     <div class="wrap">
       <nav class="migalha" aria-label="Você está em"><a href="index.html">Início</a> / Produtos</nav>
-      <h1>Catálogo de peças</h1>
+      <h1 data-titulo>Catálogo de peças</h1>
       <p class="lead">22 linhas em borracha e poliuretano. Toque numa peça para ver a ficha e montar a sua lista de cotação.</p>
       <div class="ferramentas">
         <label class="busca"><span class="sr">Buscar no catálogo</span>
@@ -81,7 +81,7 @@
 <dialog class="ficha" id="ficha" aria-labelledby="f-nome">
   <button class="fechar" type="button" aria-label="Fechar ficha">&times;</button>
   <div class="ficha-grade">
-    <div class="ficha-img"><img id="f-img" src="" alt=""></div>
+    <div class="ficha-img"><div class="ficha-faixa"></div><img id="f-img" src="" alt=""></div>
     <div class="ficha-txt">
       <span class="fam" id="f-fam" style="font-weight:700;color:var(--verde-escuro);font-size:.9rem"></span>
       <h2 id="f-nome"></h2>
@@ -128,7 +128,12 @@
 
 <a class="zap" data-zap href="#" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg><span>WhatsApp</span></a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="src/js/dados.js"></script>
 <script src="src/js/main.js"></script>
+<script src="src/js/motion.js"></script>
 </body>
 </html>
